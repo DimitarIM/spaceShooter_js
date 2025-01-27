@@ -2,7 +2,7 @@ import k from "./kaplayCtx";
 import menu from "./scenes/menu"
 import level_1 from "./scenes/level_1"
 
-k.loadSprite("space-bg", "graphics/space-bg.png");
+k.loadSprite("level_1-bg", "graphics/level_1-bg.png");
 
 k.loadSprite("player", "graphics/player/player.png");
 k.loadSprite("player-engine", "graphics/player/player-engine.png", {
