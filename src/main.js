@@ -81,6 +81,13 @@ k.loadSprite("fighter-explode", "graphics/destruction/fighter-explode.png",{
         destroy: { form: 0, to: 8, loop: false, speed: 30}
     }
 });
+k.loadSprite("fighter-weapon", "graphics/shooting/fighter-weapon.png",{
+    sliceX: 6,
+    sliceY: 1,
+    anims: {
+        shoot: { form: 0, to: 5, loop: false, speed: 30}
+    }
+});
 
 k.loadSprite("frigate", "graphics/enemies/frigate.png");
 k.loadSprite("frigate-explode", "graphics/destruction/frigate-explode.png",{
@@ -97,6 +104,13 @@ k.loadSprite("frigate-shield", "graphics/shields/frigate-shield.png",{
         shielding: { form: 0, to: 39, loop: true, speed: 30}
     }
 });
+k.loadSprite("fighter-weapn", "graphics/shooting/fighter-weapon.png",{
+    sliceX: 6,
+    sliceY: 1,
+    anims: {
+        shoot: { form: 0, to: 5, loop: false, speed: 30}
+    }
+});
 
 k.loadSprite("battlecruiser", "graphics/enemies/battlecruiser.png");
 k.loadSprite("battlecruiser-explode", "graphics/destruction/battlecruiser-explode.png",{
@@ -104,6 +118,13 @@ k.loadSprite("battlecruiser-explode", "graphics/destruction/battlecruiser-explod
     sliceY: 1,
     anims: {
         destroy: { form: 0, to: 13, loop: false, speed: 30}
+    }
+});
+k.loadSprite("battlecruiser-weapon", "graphics/shooting/battlecruiser-weapon.png",{
+    sliceX: 30,
+    sliceY: 1,
+    anims: {
+        shoot: { form: 0, to: 29, loop: false, speed: 30}
     }
 });
 
@@ -120,6 +141,13 @@ k.loadSprite("gartagua-shield", "graphics/shields/frigate-shield.png",{
     sliceY: 1,
     anims: {
         shielding: { form: 0, to: 9, loop: true, speed: 30}
+    }
+});
+k.loadSprite("gartagua-weapon", "graphics/shooting/gartagua-weapon.png",{
+    sliceX: 60,
+    sliceY: 1,
+    anims: {
+        shoot: { form: 0, to: 59, loop: false, speed: 30}
     }
 });
 
