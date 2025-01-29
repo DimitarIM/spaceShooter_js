@@ -7,6 +7,9 @@ export default function disclaimer () {
     ])
     
     k.onKeyPress(() => {
-        k.go("menu")
+        k.go("menu");
+    })
+    k.onMousePress(() => {
+        k.go("menu");
     })
 }
