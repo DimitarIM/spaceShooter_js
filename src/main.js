@@ -1,13 +1,15 @@
 import k from "./kaplayCtx";
-import menu from "./scenes/menu"
-import level_1 from "./scenes/level_1"
+import disclaimer from "./scenes/disclaimer";
+import menu from "./scenes/menu";
+import level_1 from "./scenes/level_1";
+
 
 function loadSprites() {
 //Backgrounds
+k.loadSprite("menu-bg", "graphics/menu-bg.png");
 k.loadSprite("level_1-bg", "graphics/level_1-bg.png");
 k.loadSprite("level_2-bg", "graphics/level_2-bg.png");
 k.loadSprite("level_3-bg", "graphics/level_3-bg.png");
-k.loadSprite("level_4-bg", "graphics/level_4-bg.png");
 
 //Projectiles
 k.loadSprite("bullet", "graphics/projectiles/bullet.png", {
@@ -162,6 +164,7 @@ k.loadSprite("support-explode", "graphics/destruction/support-explode.png",{
 
 //Sounds
 k.loadSound("main-menu_ambience", "sounds/main-menu_ambience.mp3");
+k.loadSound("player-shot","sounds/player-shot.mp3");
 
 //Fonts
 k.loadFont("pixelopolis", "fonts/pixelopolis9000.ttf");
@@ -170,10 +173,10 @@ k.loadFont("pixelopolis", "fonts/pixelopolis9000.ttf");
 loadSprites();
 
 //Scenes
+k.scene("disclaimer", disclaimer)
 k.scene("menu", menu)
 k.scene("level_1", level_1)
-// k.scene("level_2", level_2)
 // k.scene("level_3", level_3)
 // k.scene("game-over")
 // k.scene("game-won")
-k.go("menu");
+k.go("disclaimer");

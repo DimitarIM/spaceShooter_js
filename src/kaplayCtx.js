@@ -16,7 +16,6 @@ const k = kaplay({
     },
     
     fire: {
-        keyboard: ["space"],
         mouse: "left",
     }
   },
