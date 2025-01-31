@@ -5,7 +5,9 @@ export function makePlayer (pos) {
     const BULLET_SPEED = 1200;
     const player = k.add([
         k.sprite("player"),
-        k.area(),
+        k.area({
+            shape: new k.Rect(k.vec2(0), 24, 22),
+        }),
         k.anchor("center"),
         k.scale(3),
         k.pos(pos),
@@ -14,16 +16,17 @@ export function makePlayer (pos) {
         {
             setControls () {
                 let playerWeapon = this.children[1];
-                let fireLeft = k.loop(0.1, () => {
-                    spawnBullet(k.vec2(this.pos.x - (this.width + 6) / 2, this.pos.y - this.width / 2));
+                let fireLeft = k.loop(0.1 , () => {
+                    spawnBullet(k.vec2(this.pos.x - (this.width + 6) / 2, (this.pos.y - this.width / 2) - 20));
                     k.play("player-shot", {volume: 0.01, loop: false});
                 });
                 let fireRight = k.loop(0.12, () => {
-                    spawnBullet(k.vec2(this.pos.x + (this.width + 6) / 2, this.pos.y - this.width / 2));
+                    spawnBullet(k.vec2(this.pos.x + (this.width + 6) / 2, (this.pos.y - this.width / 2) - 20));
                     k.play("player-shot", {volume: 0.01, loop: false});
                 });
                 fireLeft.paused = true; 
                 fireRight.paused = true;  
+
                 k.onButtonDown("moveLeft", () => {
                     this.move(-PLAYER_SPEED, 0);
                     if (this.pos.x < 48) this.pos.x = 48;
@@ -51,17 +54,22 @@ export function makePlayer (pos) {
     ])
 
     function spawnBullet(p) {
-        k.add([
+        const bullet = k.add([
             k.sprite("bullet", { anim: "move" }),
-            k.area(),
+            k.area({
+                shape: new k.Rect(k.vec2(0), 4, 6)
+            }),
             k.anchor("center"),
             k.pos(p),
             k.scale(3),
             k.move(-90, BULLET_SPEED),
             k.offscreen({ destroy: true }),
-            "bullet",
+            "p_bullet",
         ]
         )
+        bullet.onCollide("enemy", () => {
+            k.destroy(bullet);
+        })
     }
 
     player.add([

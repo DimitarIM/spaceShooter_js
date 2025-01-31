@@ -2,7 +2,7 @@ import k from "./kaplayCtx";
 import disclaimer from "./scenes/disclaimer";
 import menu from "./scenes/menu";
 import level_1 from "./scenes/level_1";
-
+import gameOver from "./scenes/gameOver";
 
 function loadSprites() {
 //Backgrounds
@@ -71,23 +71,17 @@ k.loadSprite("asteroid-explode", "graphics/destruction/asteroid-explode.png", {
     sliceX: 8,
     sliceY: 1,
     anims: {
-        destroy: { from: 0, to: 7, loop: false, speed: 30 }
+        explode: { from: 0, to: 7, loop: false, speed: 30 }
     }
 });
 
-k.loadSprite("fighter", "graphics/enemies/fighter.png");
-k.loadSprite("fighter-explode", "graphics/destruction/fighter-explode.png",{
+k.loadSprite("fighter", "graphics/enemies/fighter.png",{
     sliceX: 9,
-    sliceY: 1,
+    sliceY: 2,
     anims: {
-        destroy: { form: 0, to: 8, loop: false, speed: 30}
-    }
-});
-k.loadSprite("fighter-weapon", "graphics/shooting/fighter-weapon.png",{
-    sliceX: 6,
-    sliceY: 1,
-    anims: {
-        shoot: { form: 0, to: 5, loop: false, speed: 30}
+        idle: { from: 0, to: 0, loop: true},
+        explode: { from: 0, to: 8, loop: false, speed: 30},
+        shoot: { from: 9, to: 14, loop: false, speed: 30}
     }
 });
 
@@ -96,21 +90,21 @@ k.loadSprite("frigate-explode", "graphics/destruction/frigate-explode.png",{
     sliceX: 9,
     sliceY: 1,
     anims: {
-        destroy: { form: 0, to: 8, loop: false, speed: 30}
+        explode: { from: 0, to: 8, loop: false, speed: 30}
     }
 });
 k.loadSprite("frigate-shield", "graphics/shields/frigate-shield.png",{
     sliceX: 40,
     sliceY: 1,
     anims: {
-        shielding: { form: 0, to: 39, loop: true, speed: 30}
+        shielding: { from: 0, to: 39, loop: true, speed: 30}
     }
 });
-k.loadSprite("fighter-weapn", "graphics/shooting/fighter-weapon.png",{
+k.loadSprite("fighter-weapon", "graphics/shooting/fighter-weapon.png",{
     sliceX: 6,
     sliceY: 1,
     anims: {
-        shoot: { form: 0, to: 5, loop: false, speed: 30}
+        shoot: { from: 0, to: 5, loop: false, speed: 30}
     }
 });
 
@@ -119,14 +113,14 @@ k.loadSprite("battlecruiser-explode", "graphics/destruction/battlecruiser-explod
     sliceX: 14,
     sliceY: 1,
     anims: {
-        destroy: { form: 0, to: 13, loop: false, speed: 30}
+        explode: { from: 0, to: 13, loop: false, speed: 30}
     }
 });
 k.loadSprite("battlecruiser-weapon", "graphics/shooting/battlecruiser-weapon.png",{
     sliceX: 30,
     sliceY: 1,
     anims: {
-        shoot: { form: 0, to: 29, loop: false, speed: 30}
+        shoot: { from: 0, to: 29, loop: false, speed: 30}
     }
 });
 
@@ -135,21 +129,21 @@ k.loadSprite("gartagua-explode", "graphics/destruction/gartagua-explode.png",{
     sliceX: 12,
     sliceY: 1,
     anims: {
-        destroy: { form: 0, to: 11, loop: false, speed: 60}
+        explode: { from: 0, to: 11, loop: false, speed: 60}
     }
 });
 k.loadSprite("gartagua-shield", "graphics/shields/frigate-shield.png",{
     sliceX: 10,
     sliceY: 1,
     anims: {
-        shielding: { form: 0, to: 9, loop: true, speed: 30}
+        shielding: { from: 0, to: 9, loop: true, speed: 30}
     }
 });
 k.loadSprite("gartagua-weapon", "graphics/shooting/gartagua-weapon.png",{
     sliceX: 60,
     sliceY: 1,
     anims: {
-        shoot: { form: 0, to: 59, loop: false, speed: 30}
+        shoot: { from: 0, to: 59, loop: false, speed: 30}
     }
 });
 
@@ -158,7 +152,7 @@ k.loadSprite("support-explode", "graphics/destruction/support-explode.png",{
     sliceX: 10,
     sliceY: 1,
     anims: {
-        destroy: { form: 0, to: 9, loop: false, speed: 30}
+        explode: { from: 0, to: 9, loop: false, speed: 30}
     }
 });
 
@@ -173,10 +167,11 @@ k.loadFont("pixelopolis", "fonts/pixelopolis9000.ttf");
 loadSprites();
 
 //Scenes
-k.scene("disclaimer", disclaimer)
-k.scene("menu", menu)
-k.scene("level_1", level_1)
+k.scene("disclaimer", disclaimer);
+k.scene("menu", menu);
+k.scene("level_1", level_1);
+// k.scene("level_2", level_2)
 // k.scene("level_3", level_3)
-// k.scene("game-over")
-// k.scene("game-won")
+k.scene("gameOver", gameOver);
+// k.scene("gameWon")
 k.go("disclaimer");
