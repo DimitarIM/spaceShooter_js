@@ -23,7 +23,7 @@ k.loadSprite("bullet_big", "graphics/projectiles/bullet_big.png", {
     sliceX: 4,
     sliceY: 1,
     anims: {
-       move: { from: 0, to: 3, loop: true, speed: 30 } 
+       move: { from: 0, to: 3, loop: true, speed: 10 } 
     },
 });
 k.loadSprite("ray", "graphics/projectiles/ray.png", {
@@ -81,7 +81,7 @@ k.loadSprite("fighter", "graphics/enemies/fighter.png",{
     anims: {
         idle: { from: 0, to: 0, loop: true},
         explode: { from: 0, to: 8, loop: false, speed: 30},
-        shoot: { from: 9, to: 14, loop: false, speed: 30}
+        shoot: { from: 9, to: 14, loop: false, speed: 10}
     }
 });
 

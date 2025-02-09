@@ -1,4 +1,5 @@
 import k from "../kaplayCtx";
+import { state } from "../state/globalStateManager"
 
 export function makePlayer (pos) {
     const PLAYER_SPEED = 380;
@@ -13,6 +14,9 @@ export function makePlayer (pos) {
         k.pos(pos),
         k.offscreen(),
         k.animate(),
+        k.opacity(),
+        k.health(state.current().playerHp),
+        "player",
         {
             setControls () {
                 let playerWeapon = this.children[1];

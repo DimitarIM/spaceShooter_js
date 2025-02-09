@@ -9,7 +9,6 @@ export default function level_1() {
     //Player Logic
     const player = makePlayer(k.vec2(k.center().x, k.center().y + 400));
     player.setControls();
-    console.log(player);
     player.onCollide("enemy", () => {
         k.destroy(player);
         k.go("gameOver");
@@ -63,9 +62,14 @@ export default function level_1() {
     }
     spawnAsteroid();
 //Fighter Logic
-const fighter = makeFighter(k.vec2(k.center().x, k.center().y))
-fighter.onUpdate(() => {
-    k.wait(1, fighter.play("shoot"))
+const fighter = makeFighter(k.vec2(k.center().x, k.center().y), player)
+fighter.startShooting(1);
+
+fighter.onUpdate(()=>{
+    fighter.followPlayer();
 })
+    const spawnFighters = () => {
+    }
+spawnFighters();
 }
 
